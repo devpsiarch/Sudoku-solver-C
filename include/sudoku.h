@@ -9,6 +9,8 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
+bool solve(int r,int c,int **puzzel);
+
 bool check_valid_number(int r,int c,int number,int **puzzel);
 bool check_box(int number,int box_number,int **puzzel);
 bool check_row(int number,int r,int c,int **puzzel);

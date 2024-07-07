@@ -4,12 +4,14 @@
 int main(void){
 	int **puzzel = getpuzzel();
 	print_puzzel(puzzel);
-
-	if(check_valid_number(0,0,3,puzzel)){
-		printf("the number is valid for this possition!\n");
+	
+	if(solve(0,0,puzzel)){
+		printf("puzzel solved !!\n");
+		print_puzzel(puzzel);
+	}else{
+		printf("enable to solve the puzzel :(\n");
+		print_puzzel(puzzel);
 	}
-	else{
-		printf("number not valid \n");
-	}
+	
 	return 0;
 }

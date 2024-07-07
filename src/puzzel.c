@@ -1,5 +1,35 @@
 #include "sudoku.h"
 
+bool solve(int r,int c,int **puzzel){
+	//end of grid with no problems
+	if(r == 9){
+		return true;
+	}
+	//c exeeded the grid bounds
+	else if(c == 9){
+		return solve(r+1,0,puzzel);
+	}
+	//cell used already
+	else if(puzzel[r][c] != 0){
+		return solve(r,c+1,puzzel);
+	}
+	//we start from 1 
+	//and 9 value is accepted ...
+	//took me forever to realize .
+	else{
+		for(int x = 1;x <= 9 ;x++){
+			if(check_valid_number(r,c,x,puzzel)){
+				puzzel[r][c] = x;
+				if(solve(r,c+1,puzzel)){
+					return true;
+				}
+				puzzel[r][c] = 0;
+			}
+		}
+		return false;
+}
+}
+
 bool check_valid_number(int r,int c,int number,int **puzzel){
 	//get box number first to use the function
 	int bx = BOX_NUMBER(r,c);
@@ -66,17 +96,17 @@ int **getpuzzel(){
 	int i,j;
 	int array[9][9]=
 	{
-	{0,0,5 ,8,1,0 ,0,9,6},
-	{4,0,0 ,3,0,5 ,0,0,0},
-	{0,0,0 ,0,9,0 ,0,5,4},
+	{0,0,0 ,3,0,0 ,0,0,6},
+	{6,8,1 ,0,0,0 ,3,0,0},
+	{0,0,7 ,0,0,4 ,9,0,0},
 	
-	{2,1,0 ,6,0,0 ,5,0,0},
-	{8,0,4 ,9,0,1 ,2,0,7},
-	{0,0,7 ,0,0,8 ,0,4,9},
+	{0,0,0 ,0,7,0 ,0,9,1},
+	{0,0,0 ,6,0,2 ,0,0,0},
+	{7,5,0 ,0,8,0 ,0,0,0},
 	
-	{9,8,0 ,0,5,0 ,0,0,0},
-	{0,0,0 ,7,0,3 ,0,0,8},
-	{7,6,0 ,0,8,9 ,4,0,0},
+	{0,0,3 ,8,0,0 ,4,0,0},
+	{0,0,4 ,0,0,0 ,1,6,7},
+	{5,0,0 ,0,0,6 ,0,0,0},
 	
 	};
 	int **puzzel = (int **)malloc(sizeof(int*)*9);
