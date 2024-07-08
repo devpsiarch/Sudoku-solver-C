@@ -1,7 +1,11 @@
-a sudoku solver am working on !!!
+sudoku solver that works mildly fine !!!
+still the implimentation for a read methode to copy the puzzel isnt yet available..
 
-can solve EVIL difficulty on websudoku.com (didnt test it on other sites)
+prerequisites:
+python
+make
 
-it still needs manual incertion of the puzzel , will be implemented soon !
-
-potential storage of puzzels in a folder as text files to be solved
+how to cheat :
+copy the puzzel to the grid in src/puzzel.c
+run make to get the solution txt file
+run the python script u have 5 second of delay to get to the websudoku.com website

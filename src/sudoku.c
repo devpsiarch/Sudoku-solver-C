@@ -1,5 +1,5 @@
 #include "sudoku.h"
-
+#include "write_solution.h"
 
 int main(void){
 	int **puzzel = getpuzzel();
@@ -12,6 +12,7 @@ int main(void){
 		printf("enable to solve the puzzel :(\n");
 		print_puzzel(puzzel);
 	}
+	write_file(puzzel,"solution/solved.txt");
 	
 	return 0;
 }
