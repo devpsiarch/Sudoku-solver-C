@@ -1,5 +1,37 @@
 #include "sudoku.h"
 
+int read_puzzel(int **puzzel,char *filepath){
+        FILE *readfile = fopen(filepath,"r");
+        if(readfile == NULL){
+                perror("failed to read file \n");
+                return 1;
+        }
+        char line[64];
+        int index = 0;
+        while(fgets(line,sizeof(line),readfile)){
+                printf("the line this time is : %s and index : %d\n",line,index);
+
+                if(index >= 9){
+                        break;
+                }
+
+                sscanf(line,"%d %d %d  %d %d %d  %d %d %d",
+                &puzzel[index][0],
+                &puzzel[index][1],
+                &puzzel[index][2],
+                &puzzel[index][3],
+                &puzzel[index][4],
+                &puzzel[index][5],
+                &puzzel[index][6],
+                &puzzel[index][7],
+                &puzzel[index][8]);
+
+                index++;
+        }
+        fclose(readfile);
+        return 0;
+}
+
 bool solve(int r,int c,int **puzzel){
 	//end of grid with no problems
 	if(r == 9){
@@ -27,7 +59,7 @@ bool solve(int r,int c,int **puzzel){
 			}
 		}
 		return false;
-}
+	}
 }
 
 bool check_valid_number(int r,int c,int number,int **puzzel){

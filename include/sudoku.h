@@ -20,4 +20,7 @@ int **getpuzzel();
 
 void print_puzzel(int **arr);
 void print_box(int **puzzel,int r,int c); 
+
+int read_puzzel(int **puzzel,char *filepath);
+
 #endif

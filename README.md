@@ -1,11 +1,13 @@
-sudoku solver that works mildly fine !!!
-still the implimentation for a read methode to copy the puzzel isnt yet available..
+#sudoku solver that works mildly fine !!!
 
-prerequisites:
-python
+#prerequisites:
+- python
+- make
+
+#how to use the solver
+- copy the puzzel in the text file in the parent directory
+- run ```bash
 make
-
-how to cheat :
-copy the puzzel to the grid in src/puzzel.c
-run make to get the solution txt file
-run the python script u have 5 second of delay to get to the websudoku.com website
+```
+- get in the venv from windows cuz i have a broken wsl
+- run solved.py 
