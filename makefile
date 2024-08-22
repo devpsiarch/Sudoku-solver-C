@@ -15,3 +15,5 @@ run:
 
 clean:
 	rm sudoku
+reset:
+	rm solution/solved.txt

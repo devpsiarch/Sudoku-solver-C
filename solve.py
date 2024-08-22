@@ -1,5 +1,10 @@
 import pyautogui as pg
 import time
+import sys
+
+def skip_over():
+    for i in range(9):
+        pg.press("left")
 
 def sudoku_clear(filename):
     file = open("solution/solved.txt","r")   
@@ -11,6 +16,7 @@ def sudoku_clear(filename):
         pg.press("right")
         i+=1
         if i == 9 :
+            skip_over()
             pg.press("down")
             i=0
         char = file.read(1)
